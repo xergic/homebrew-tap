@@ -20,19 +20,18 @@ cask "localfox" do
   uninstall launchctl: "net.kandera.Localfox.helper",
             quit:      "net.kandera.Localfox"
 
-  # The root CA is trusted in the System keychain. Only zap removes it, because
-  # brew upgrade runs uninstall and a re-trust asks for an admin password.
+  # The root CA is trusted in the login keychain. Only zap removes it, because
+  # brew upgrade runs uninstall and a re-trust asks for a password.
   zap script: {
         executable: "/bin/sh",
         args:       [
           "-c",
           "security find-certificate -a -c 'Localfox Local Authority' -Z \"$1\" " \
           "| awk '/^SHA-256 hash:/ {print $3}' " \
-          "| while read -r hash; do security delete-certificate -Z \"$hash\" \"$1\"; done",
+          "| while read -r hash; do security delete-certificate -t -Z \"$hash\" \"$1\"; done",
           "sh",
-          "/Library/Keychains/System.keychain",
+          "#{Dir.home}/Library/Keychains/login.keychain-db",
         ],
-        sudo:       true,
       },
       trash:  [
         "/Library/Application Support/Localfox",
