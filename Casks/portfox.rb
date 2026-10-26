@@ -12,6 +12,7 @@ cask "portfox" do
     strategy :github_latest
   end
 
+  auto_updates true
   depends_on arch: :arm64
   depends_on macos: :sequoia
 
@@ -19,5 +20,9 @@ cask "portfox" do
 
   uninstall quit: "net.kandera.Portfox"
 
-  zap trash: "~/Library/Preferences/net.kandera.Portfox.plist"
+  zap trash: [
+    "~/Library/Caches/net.kandera.Portfox",
+    "~/Library/HTTPStorages/net.kandera.Portfox",
+    "~/Library/Preferences/net.kandera.Portfox.plist",
+  ]
 end
