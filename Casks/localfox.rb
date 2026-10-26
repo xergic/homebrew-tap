@@ -12,6 +12,7 @@ cask "localfox" do
     strategy :github_latest
   end
 
+  auto_updates true
   depends_on arch: :arm64
   depends_on macos: :sequoia
 
@@ -36,6 +37,8 @@ cask "localfox" do
       trash:  [
         "/Library/Application Support/Localfox",
         "~/Library/Application Support/Localfox",
+        "~/Library/Caches/net.kandera.Localfox",
+        "~/Library/HTTPStorages/net.kandera.Localfox",
         "~/Library/Preferences/net.kandera.Localfox.plist",
       ]
 end
