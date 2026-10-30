@@ -1,6 +1,6 @@
 cask "portfox" do
-  version "1.6.0"
-  sha256 "324b04aebe667e8928f009656d3ee9a403fda43e56dd66162b9d1fe229c1d333"
+  version "1.6.1"
+  sha256 "0ffcbc11f2839de9dc4324a79b594948245ad483b1fc2c5ba29034e7ea1e54c9"
 
   url "https://github.com/xergic/portfox/releases/download/v#{version}/Portfox-#{version}.dmg"
   name "Portfox"
