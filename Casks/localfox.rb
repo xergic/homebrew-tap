@@ -1,6 +1,6 @@
 cask "localfox" do
-  version "1.6.2"
-  sha256 "e5abdcdfdde0b9a4837bd1953f651b1208c1a0f1bce43f13bf19ffb1538e3ffb"
+  version "1.6.3"
+  sha256 "cb7a0a492aa8742fac8087c7db129b934a4ee39224d87bba4a787ddf2677d715"
 
   url "https://github.com/xergic/localfox/releases/download/v#{version}/Localfox-#{version}.dmg"
   name "Localfox"
